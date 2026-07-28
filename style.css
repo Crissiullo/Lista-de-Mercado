@@ -1,0 +1,266 @@
+/* =========================================================
+   Lista de Mercado — estilo "recibo de papelaria"
+   Paleta: papel, tinta verde-escura, jade, tijolo
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --papel: #F3F1EA;
+  --papel-alt: #EAE7DC;
+  --tinta: #1C2B22;
+  --tinta-suave: #4A5A50;
+  --jade: #2F6F5E;
+  --jade-escuro: #234F42;
+  --tijolo: #A8402F;
+  --tijolo-escuro: #7E2F22;
+  --linha: #D8D3C4;
+  --sombra: rgba(28, 43, 34, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px 80px;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Container central estilo "folha" */
+#cabeca, #subt, form, table {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#cabeca {
+  text-align: center;
+  padding-bottom: 24px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--tinta);
+}
+
+#cabeca h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+#cabeca h1::before {
+  content: "🛒";
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+#subt {
+  margin-top: 32px;
+  margin-bottom: 4px;
+}
+
+#subt h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--tinta-suave);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 12px 0;
+}
+
+/* Formulário */
+form {
+  background: #ffffff;
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+  box-shadow: 0 2px 10px var(--sombra);
+}
+
+form label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--tinta-suave);
+  margin-bottom: 4px;
+  display: block;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  border: 1px solid var(--linha);
+  border-radius: 6px;
+  background: var(--papel);
+  color: var(--tinta);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+form input::placeholder {
+  color: #9a9385;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--jade);
+  box-shadow: 0 0 0 3px rgba(47, 111, 94, 0.15);
+}
+
+/* label + input agrupados numa coluna própria */
+form label[for="produto"], form input#produto {
+  grid-column: 1 / -1;
+}
+
+form button#boto {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  padding: 12px 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  background: var(--jade);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+form button#boto:hover {
+  background: var(--jade-escuro);
+}
+
+form button#boto:active {
+  transform: scale(0.98);
+}
+
+form button#boto:focus-visible {
+  outline: 2px solid var(--tinta);
+  outline-offset: 2px;
+}
+
+/* Tabela estilo recibo */
+table {
+  width: 100%;
+  margin-top: 32px;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px var(--sombra);
+}
+
+thead tr {
+  background: var(--tinta);
+}
+
+thead th {
+  color: var(--papel);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px dashed var(--linha);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--papel-alt);
+}
+
+tbody td {
+  padding: 12px 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+}
+
+tbody td:first-child {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+/* Botão apagar dentro da tabela */
+button.apagar {
+  padding: 6px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--tijolo);
+  background: transparent;
+  border: 1px solid var(--tijolo);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+button.apagar:hover {
+  color: #fff;
+  background: var(--tijolo-escuro);
+  border-color: var(--tijolo-escuro);
+}
+
+button.apagar:focus-visible {
+  outline: 2px solid var(--tijolo);
+  outline-offset: 2px;
+}
+
+/* Total — carimbo de recibo */
+h3 {
+  max-width: 640px;
+  margin: 28px auto 0;
+  padding-top: 20px;
+  border-top: 2px dashed var(--tinta);
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-align: right;
+}
+
+h3 #totalGeral {
+  color: var(--jade-escuro);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Responsivo */
+@media (max-width: 560px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+  thead th, tbody td {
+    padding: 10px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+/* Respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Mercado</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div id="cabeca">
+        <h1>Lista de Mercado</h1>
+    </div>
+    <div id="subt">
+        <h2>Adicionar Produto</h2>
+    </div>
+    <form>
+        <label for="produto">Produto</label>
+        <input type="text" id="produto" placeholder="Digite o nome do Produto!">
+        <label for="quantidade">Quantidade</label>
+        <input type="number" id="quantidade" placeholder="Digite a Quantidade!" step="1">
+        <label for="preco">Preço Unitário</label>
+        <input type="number" id="preco" placeholder="Digite o Preço!" step="0.01">
+        <button id="boto" type="submit">Adicionar Produtos</button>
+
+        <label for="unidade">Unidade</label>
+ <select id="unidade">
+    <option value="un">Unidade</option>
+    <option value="kg">Kg</option>
+    <option value="g">Gramas</option>
+    <option value="ml">Ml</option>
+    <option value="l">Litro</option>
+</select>
+    
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Produtos</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Açôes</th>
+            </tr>
+        </thead>
+        <tbody 
+        id="listaprodutos">
+        </tbody>
+        <h3>Total:R$<span id="totalgeral">0.00</span></h3>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
